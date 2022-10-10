@@ -219,8 +219,7 @@ console.log(`-------------------  5.6  ------------------`);
 
 const maskify = function (secretNumber) {
   if (secretNumber.length >= 4) {
-    const last4chars = secretNumber
-      .split("")
+    const last4chars = [...secretNumber]
       .slice(secretNumber.length - 4)
       .join("");
     const maskedChars = "#".repeat(secretNumber.length - 4);
@@ -256,7 +255,7 @@ const accum = function (str) {
   return mappingAccum.join("-");
 };
 
-console.log(accum("cwAt"));
+// console.log(accum("cwAt"));
 
 console.log(`-------------------  6.2  ------------------`);
 
