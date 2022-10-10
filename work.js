@@ -247,7 +247,7 @@ const shortestWord = function (sentence) {
 console.log(`-------------------  6.1  ------------------`);
 
 const accum = function (str) {
-  const splitStr = str.toLowerCase().split("");
+  const splitStr = [...str.toLowerCase()];
   const mappingAccum = splitStr.map((letter, index) => {
     const firstLetter = letter.toUpperCase();
     const repeatedLetter = firstLetter + letter.repeat(index);
@@ -256,7 +256,7 @@ const accum = function (str) {
   return mappingAccum.join("-");
 };
 
-// console.log(accum("cwAt"));
+console.log(accum("cwAt"));
 
 console.log(`-------------------  6.2  ------------------`);
 
@@ -268,8 +268,7 @@ const Duplicates = function (str) {
   resaultText = "";
 
   sortingArr.forEach((element) => {
-    if (countingObj[element]) countingObj[element]++;
-    else countingObj[element] = 1;
+    countingObj[element] ? countingObj[element]++ : (countingObj[element] = 1);
   });
 
   for (let [key, value] of Object.entries(countingObj)) {
@@ -282,15 +281,12 @@ const Duplicates = function (str) {
   return countingObj;
 };
 
-// console.log(Duplicates("aabbc"));
+// Duplicates("aabbc");
 
 console.log(`-------------------  6.3  ------------------`);
 
 const longest = function (a, b) {
-  const arrA = a.split("");
-  const arrB = b.split("");
-  const sortedAll = [...new Set(arrA.concat(arrB).sort())].join("");
-  return sortedAll;
+  return [...new Set([...a].concat([...b]).sort())].join("");
 };
 
 // console.log(longest("xyaabbbccccdefww", "xxxxyyyyabklmopq"));
@@ -310,6 +306,6 @@ const isIsogram = function (str) {
   return count === 0 ? true : false;
 };
 
-console.log(isIsogram("moOse"));
+// console.log(isIsogram("moOse"));
 
 console.log(`-----------------  THE END  ----------------`);
