@@ -299,24 +299,17 @@ console.log(`-------------------  6.4  ------------------`);
 
 const isIsogram = function (str) {
   const sortingArr = str.toLowerCase().split("").sort();
-
-  countingObj = {};
-  isTrue = true;
-  resaultText = "";
-
+  const countingObj = {};
+  count = 0;
   sortingArr.forEach((element) => {
-    if (countingObj[element]) countingObj[element]++;
-    else countingObj[element] = 1;
+    countingObj[element] ? countingObj[element]++ : (countingObj[element] = 1);
   });
-
-  for (let [key, value] of Object.entries(countingObj)) {
-    if (value > 1) {
-      isTrue = false;
-    }
+  for (let value in countingObj) {
+    if (countingObj[value] > 1) count++;
   }
-  return isTrue;
+  return count === 0 ? true : false;
 };
 
-// console.log(isIsogram("moOse"));
+console.log(isIsogram("moOse"));
 
 console.log(`-----------------  THE END  ----------------`);
