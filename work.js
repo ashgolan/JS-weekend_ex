@@ -108,12 +108,13 @@ const peopleInBus = function (arr) {
   return reduced;
 };
 
-const stillInABus = peopleInBus([
-  [5, 0],
-  [3, 1],
-  [8, 0],
-]);
-// console.log(stillInABus);
+console.log(
+  peopleInBus([
+    [5, 0],
+    [3, 1],
+    [8, 0],
+  ])
+);
 
 console.log(`-------------------  4.1  ------------------`);
 
